@@ -22,7 +22,16 @@
     color:#616161;
 
 }
+.slider_button:hover{
+    cursor: pointer;
+    background: #bdbdbd;
+}
+.slider_button:focus{
+    outline:none;
+    border-color: #42aff5;
+}
 .slider_controls{
     display:flex;
     justify-content: center;
+    padding:10px 0;
 }
