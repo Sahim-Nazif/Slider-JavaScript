@@ -23,7 +23,7 @@ const nextImage=()=>{
     sliderImage.src=images[currentImage];
 }
 
-nextBtn.addEventListener('click', nextImage)
+
 
 const prevImage=()=>{
 
@@ -36,10 +36,25 @@ const prevImage=()=>{
       sliderImage.src=images[currentImage]
 }
 
-prevBtn.addEventListener('click', prevImage)
 
-const playImages=()=>{
-    currentImage++;
+
+
+let interval;
+
+const autoPlay=()=>{
+
+    if (interval){
+        clearInterval(interval)
+        interval=null;
+    } else{
+       interval= setInterval(()=>{
+            nextImage()
+        },1000)
+    }
+    playBtn.children[0].classList.toggle('fa-play');
+    playBtn.children[0].classList.toggle('fa-pause')
+    
 }
-
-playBtn.addEventListener('click', playImage)
+nextBtn.addEventListener('click', nextImage)
+prevBtn.addEventListener('click', prevImage)
+playBtn.addEventListener('click', autoPlay)
